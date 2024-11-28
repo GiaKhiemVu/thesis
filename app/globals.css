@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* :root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+ :root {
+  --bg-color: #444;  /* Default background color */
+  --primary-color: #3498db; /* Example for another variable */
+  --secondary-color: #2ecc71; /* Example for another variable */
+  --font-size: 16px; /* Example for font size */
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%); /* Start off-screen to the right */
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0); /* Fully visible */
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0); /* Start at the current position */
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%); /* Move off-screen to the left */
+    opacity: 0;
+  }
+}
+
