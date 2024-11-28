@@ -15,7 +15,7 @@
 } */
  :root {
   --bg-color: #444;  /* Default background color */
-  --primary-color: #3498db; /* Example for another variable */
+  --primary-color: #FFF; /* Example for another variable */
   --secondary-color: #2ecc71; /* Example for another variable */
   --font-size: 16px; /* Example for font size */
 }
