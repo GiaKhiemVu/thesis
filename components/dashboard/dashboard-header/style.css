@@ -2,29 +2,36 @@
 
 header {
     background-color: var(--bg-color);
-    padding: 10px 20px;
+    height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: white;
+    color: var(--primary-color);
+    width: 100%; 
 }
 
 header .logo {
-    font-size: 24px;
+    font-size: var(--header-font-size);
 }
 
 header nav {
     display: flex;
     gap: 15px;
+    font-size: var(--header-font-size);
 }
 
 header nav a {
-    color: white;
+    color: var(--primary-color);
     text-decoration: none;
-    font-size: 16px;
+    font-size: var(--font-size);
     padding: 5px;
 }
 
 header nav a:hover {
     text-decoration: underline;
+}
+
+.nav-icon {
+    font-size: calc(var(--font-size)+3px); 
+    color: red;
 }
