@@ -6,12 +6,16 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/auth/authContext";
 import { DashboardHeaderNavItems } from "@/types/itemsList.types";
 import { AccountCircle, NotificationImportant, Settings } from "@mui/icons-material";
-import { Menu, MenuItem, Button } from "@mui/material";  // Import Material UI components
+import { Menu, MenuItem, Button, Typography, Tooltip } from "@mui/material";
 
-function DashboardHeader() {
+interface DashboardHeaderProps {
+    userDetail: UserDetail | null;
+}
+
+const DashboardHeader: React.FC<DashboardHeaderProps> = ({ userDetail }) => {
     const router = useRouter();
     const auth = useAuth();
-
+    
     // Separate state for anchor elements of each dropdown
     const [profileAnchorEl, setProfileAnchorEl] = useState<null | HTMLElement>(null);
     const [settingsAnchorEl, setSettingsAnchorEl] = useState<null | HTMLElement>(null);
@@ -21,8 +25,20 @@ function DashboardHeader() {
             title: 'Notification',
             icon: NotificationImportant,
             child: null,
-        },
-        {
+        },{
+            title: 'Settings',
+            icon: Settings,
+            child: [
+                {
+                    title: 'Change Theme',
+                    actionOnClick: () => console.log("Change Theme"),
+                },
+                {
+                    title: 'Change Color',
+                    actionOnClick: () => console.log("Change Background Color"),
+                },
+            ],
+        },{
             title: 'Profile',
             icon: AccountCircle,
             child: [
@@ -33,20 +49,6 @@ function DashboardHeader() {
                 {
                     title: 'Logout',
                     actionOnClick: () => auth.logout(),
-                },
-            ],
-        },
-        {
-            title: 'Settings',
-            icon: Settings,
-            child: [
-                {
-                    title: 'Change Theme',
-                    actionOnClick: () => console.log("Change Theme"),
-                },
-                {
-                    title: 'Change Background Color',
-                    actionOnClick: () => console.log("Change Background Color"),
                 },
             ],
         },
@@ -74,22 +76,27 @@ function DashboardHeader() {
             <nav className="header-nav">
                 {dashboardHeaderNavItems.map((item, index) => (
                     <div key={index} className="nav-item">
-                        {/* Render main button with MUI icon */}
-                        <Button
-                            className="nav-button"
-                            onClick={(event) => handleClick(event, item)}
-                            startIcon={item.icon && <item.icon />}
-                        >
-                            {item.title}
-                        </Button>
+                         <Tooltip title={item.title} arrow>
+                            <Button
+                                className="nav-button"
+                                onClick={(event) => handleClick(event, item)}
+                                startIcon={item.icon && <item.icon className="nav-icon"/>}
+                            />
+                        </Tooltip>
 
-                        {/* Render dropdown if child items exist */}
                         {item.child && (
                             <Menu
                                 anchorEl={item.title === 'Profile' ? profileAnchorEl : settingsAnchorEl}
                                 open={Boolean(item.title === 'Profile' ? profileAnchorEl : settingsAnchorEl)}
                                 onClose={handleClose}
                             >
+                                {/* Render Profile greeting before the dropdown menu items */}
+                                {item.title === 'Profile' && (
+                                    <Typography variant="body1" sx={{ padding: '10px' }}>
+                                        Hello, {userDetail?.username}
+                                    </Typography>
+                                )}
+
                                 {item.child.map((childItem, childIndex) => (
                                     <MenuItem
                                         key={`${item.title}-${childIndex}`}

@@ -18,6 +18,7 @@
   --primary-color: #FFF; /* Example for another variable */
   --secondary-color: #2ecc71; /* Example for another variable */
   --font-size: 16px; /* Example for font size */
+  --header-font-size: 30px;
 }
 
 body {

@@ -1,6 +1,16 @@
 type UserReduxState = {
-    username: string | null;
-    email: string | null;
-    isAuthenticated: boolean;
-    accessToken: string | null;
-  }
+  userDetail: UserDetail | null,
+  accessToken: string | null,
+  status: statusRedux,
+}
+
+type statusRedux = {
+  error: boolean,
+  isInit: boolean,
+  isLoading: boolean,
+}
+
+type UserDetail = {
+  username: string,
+  email: string,
+}

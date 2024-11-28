@@ -2,10 +2,10 @@
 
 import { useAuth } from "@/auth/authContext";
 import { useToast } from "@/context/toastContext";
-import { selectAccessToken } from "@/redux/selectors/userSelector";
+import { isLoading } from "@/redux/selectors/userSelector";
 import { UserValidationUtils } from "@/utils/validation";
 import { Card, Typography, InputLabel, FormControl, Button } from "@mui/material";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import { useSelector } from "react-redux";
 
 function LoginForm() {

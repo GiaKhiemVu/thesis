@@ -1,14 +1,10 @@
 import React from "react";
-import RootLayout from "@/app/layout";
-import DashboardHeader from "@/components/dashboard/dashboard-header/dashboard-header";
-import DashboardSidebar from "@/components/dashboard/dashboad-sidebar/dashboard-sidebar";
+import DashBoard from "./view";
 
 function DashBoardPage() {
-    return <RootLayout>
-        <DashboardHeader/>
-
-        <DashboardSidebar/>
-    </RootLayout>
+    return <>
+        <DashBoard/>
+     </>
 }
 
 export default DashBoardPage;

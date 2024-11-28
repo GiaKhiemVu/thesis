@@ -4,15 +4,18 @@ import { Provider } from "react-redux";
 import { store } from "./store"; 
 import { AuthProvider } from "../auth/authContext";
 import { ToastProvider } from "../context/toastContext";
+import { LoadingProvider } from "@/context/loadingScreenContext";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <Provider store={store}>
-      <AuthProvider>
-        <ToastProvider>
-          {children}
-        </ToastProvider>
-      </AuthProvider>
+      <LoadingProvider>
+        <AuthProvider>
+          <ToastProvider>
+            {children}
+          </ToastProvider>
+        </AuthProvider>
+      </LoadingProvider>
     </Provider>
   );
 }

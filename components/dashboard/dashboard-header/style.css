@@ -11,12 +11,13 @@ header {
 }
 
 header .logo {
-    font-size: 24px;
+    font-size: var(--header-font-size);
 }
 
 header nav {
     display: flex;
     gap: 15px;
+    font-size: var(--header-font-size);
 }
 
 header nav a {
@@ -28,4 +29,9 @@ header nav a {
 
 header nav a:hover {
     text-decoration: underline;
+}
+
+.nav-icon {
+    font-size: calc(var(--font-size)+3px); 
+    color: red;
 }

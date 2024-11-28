@@ -21,13 +21,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const router = useRouter();
 
   const login = (username: string, password: string) => {
+    console.log("Login");
     if (username && password) {
       const payload: LoginFormObject = {
         account: username,
         password: securityUtils.hash(password), 
       }
-      console.log()
-      signin(payload)
+      signin(payload, dispatch)
+      console.log("Set Authenticated status");
       setIsAuthenticated(true);
       router.push("/dashboard");
     } else {
@@ -38,6 +39,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const logout = () => {
     dispatch(reset());
     setIsAuthenticated(false);
+    sessionStorage.removeItem('accessToken')
     router.push("/login");
   };
 
