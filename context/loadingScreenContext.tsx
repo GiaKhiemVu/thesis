@@ -3,23 +3,23 @@
 import React, { createContext, useContext, ReactNode, useState } from "react";
 import LoadingScreen from "../components/spinner/spinner";
 import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store"; // Adjust path to your store
+import { RootState } from "@/redux/store";
 
 type LoadingContextType = {
-  startLoading: () => void; // Manually show loading screen
-  stopLoading: () => void;  // Manually hide loading screen
+  startLoading: () => void;
+  stopLoading: () => void; 
 };
 
 const LoadingContext = createContext<LoadingContextType | undefined>(undefined);
 
 export const LoadingProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [manualLoading, setManualLoading] = useState(false); // Manual loading state
-  const isReduxLoading = useSelector((state: RootState) => state.user.status.isLoading); // Redux-based loading
+  const [manualLoading, setManualLoading] = useState(false);
+  const isReduxLoading = useSelector((state: RootState) => state.user.status.isLoading);
 
   const startLoading = () => setManualLoading(true);
   const stopLoading = () => setManualLoading(false);
 
-  const isLoading = isReduxLoading || manualLoading; // Combine both loading states
+  const isLoading = isReduxLoading || manualLoading; 
 
   return (
     <LoadingContext.Provider value={{ startLoading, stopLoading }}>

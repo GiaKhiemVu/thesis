@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation";
 import { selectUserDetail } from "@/redux/selectors/userSelector";
 import { getUserInfo } from "@/redux/slices/userSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { useLoading } from "@/context/loadingScreenContext";
 
 function DashBoard() {
     const auth = useAuth()

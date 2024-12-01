@@ -58,7 +58,7 @@ export async function signin(payload: LoginFormObject, dispatch: Dispatch): Prom
   const token = await new Promise<string>((resolve) => {
     setTimeout(() => {
       resolve('fakeAccessToken');
-    }, 10000);
+    }, 1000);
   });
   dispatch(userSlice.actions.signinCompelete(token))
   return token;
@@ -73,7 +73,7 @@ export async function getUserInfo(token: string, dispatch: Dispatch): Promise<Us
         email: 'kenvu@gmail.com'
       })
       
-    }, 10000)
+    }, 1000)
   })
   dispatch(userSlice.actions.getUserInfoComplete(userDetail))
 

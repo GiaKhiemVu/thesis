@@ -13,14 +13,14 @@
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 320px;
+    width: 30%;
     font-family: Arial, sans-serif;
 }
 
 /* Title styling */
 .login-title {
     text-align: center;
-    font-size: 28px;
+    font-size: 24px;
     margin-bottom: 20px;
     color: #333;
 }
@@ -30,37 +30,33 @@
     margin-bottom: 15px;
 }
 
-.input-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-}
-
-.input-group input {
-    width: 100%;
+.input-field {
+    width: 80%; /* Adjusted width */
+    margin: 0 auto; /* Center the field */
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
+    display: block;
 }
 
-.input-group input:focus {
+.input-field:focus {
     border-color: #007bff;
     outline: none;
 }
 
 /* Button styling */
 .button-group {
-    display: flex;
-    justify-content: center;
+    text-align: center;
 }
 
-.button-group button {
-    width: 100%;
+.submit-button {
+    width: 80%; /* Adjusted width */
     padding: 12px;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 4px;
+    font-size: 16px;
+    margin: 20px auto 0 auto;
 }
